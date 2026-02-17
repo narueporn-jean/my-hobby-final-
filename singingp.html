@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Café Vibes Playlist — My Hobby</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- NEW HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+      <h1>Café Vibes Playlist 🍰</h1>
+      <p>Soft & sweet music to enjoy while baking, reading, or just relaxing.</p>
+  </div>
+  <img src="song.jpg" class="hero-img" alt="Baking Hero Image">
+</section>
+
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="gamep.html">Game</a>
+  <a href="bakingp.html">Baking</a>
+  <a href="singingp.html" class="active">Singing</a>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="player-card" aria-live="polite">
+      <div class="now-playing">
+        <div class="dot" id="playingDot" style="visibility:hidden;"></div>
+        <div>
+          <h3 id="nowTitle">Click a song to play</h3>
+          <p id="nowArtist">Café Vibes • Soft playlist</p>
+        </div>
+      </div>
+
+      <div class="player-frame" id="playerFrame">
+        <iframe id="ytPlayer" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <ul class="playlist" id="playlist">
+        <li data-video="WleNnd42Boc">
+          <div class="track-info">
+            <img class="track-thumb" src="https://i.ytimg.com/vi/WleNnd42Boc/hqdefault.jpg" alt="song1">
+            <div class="track-meta"><h4>เอาปากกามาวง</h4><p>BELL WARISARA</p></div>
+          </div>
+          <button class="play-btn">Play</button>
+        </li>
+        <li data-video="8ONLsKcc294">
+          <div class="track-info">
+            <img class="track-thumb" src="https://i.ytimg.com/vi/8ONLsKcc294/hqdefault.jpg" alt="song2">
+            <div class="track-meta"><h4>Wanna Be Yours</h4><p>VIOLETTE WAUTIER</p></div>
+          </div>
+          <button class="play-btn">Play</button>
+        </li>
+        <li data-video="gZusLbhL9zA">
+          <div class="track-info">
+            <img class="track-thumb" src="https://i.ytimg.com/vi/gZusLbhL9zA/hqdefault.jpg" alt="song3">
+            <div class="track-meta"><h4>สายตายาว</h4><p>SUGAR EYES</p></div>
+          </div>
+          <button class="play-btn">Play</button>
+        </li>
+        <li data-video="1VP8JrTHoHo">
+          <div class="track-info">
+            <img class="track-thumb" src="https://i.ytimg.com/vi/1VP8JrTHoHo/hqdefault.jpg" alt="song4">
+            <div class="track-meta"><h4>คุณนายตื่นสาย</h4><p>TEMI FT. KIRANA</p></div>
+          </div>
+          <button class="play-btn">Play</button>
+        </li>
+        <li data-video="PGfPNuFMNfg">
+          <div class="track-info">
+            <img class="track-thumb" src="https://i.ytimg.com/vi/PGfPNuFMNfg/hqdefault.jpg" alt="song5">
+            <div class="track-meta"><h4>อยากเป็นคนสำคัญของเธอ</h4><p>GYPSO ARIIGANTHA</p></div>
+          </div>
+          <button class="play-btn">Play</button>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="side-card">
+      <h3>Café Gallery</h3>
+      <p>Soft pastries and cozy vibes — perfect companion for this playlist.</p>
+
+      <div class="mini-gallery">
+        <div class="mini-item">
+          <img src="macarons 2.jpg" alt="Macarons">
+          <p>Macarons</p>
+        </div>
+        <div class="mini-item">
+          <img src="crepe 2.jpg" alt="Crepe Cake">
+          <p>Crepe</p>
+        </div>
+        <div class="mini-item">
+          <img src="cheese cake 2.jpg" alt="Cheese Cake">
+          <p>Cheese Cake</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  © 2025 My Hobby — Café Vibes Playlist
+</footer>
+
+<script>
+  const playlistEl = document.getElementById('playlist');
+  const ytPlayer = document.getElementById('ytPlayer');
+
+  playlistEl.addEventListener('click', function(e){
+    const li = e.target.closest('li[data-video]');
+    if (!li) return;
+    const videoId = li.getAttribute('data-video');
+    ytPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1`;
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+

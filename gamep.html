@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming — My Hobby</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="game">
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Cozy Gaming Time 🎮</h1>
+    <p>Relax, explore new worlds, and enjoy games in a calm & comfortable way.</p>
+  </div>
+  <img src="game2.jpg" class="hero-img" alt="Gaming Hero Image">
+</section>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="gamep.html" class="active">Game</a>
+  <a href="bakingp.html">Baking</a>
+  <a href="singingp.html">Singing</a>
+</nav>
+
+<!-- WHY GAMING -->
+<section class="why-game">
+  <h2>Why Gaming Feels Special to Me</h2>
+  <div class="why-game-grid">
+
+    <div class="why-card">
+      <span>🎮</span>
+      <h3>Relax & Recharge</h3>
+      <p>Gaming helps me calm my mind and enjoy peaceful moments after a long day.</p>
+    </div>
+
+    <div class="why-card">
+      <span>🧠</span>
+      <h3>Creative Thinking</h3>
+      <p>Games challenge my thinking, strategy, and imagination in fun ways.</p>
+    </div>
+
+    <div class="why-card">
+      <span>🌍</span>
+      <h3>New Worlds</h3>
+      <p>I love exploring beautiful virtual worlds and discovering new stories.</p>
+    </div>
+
+    <div class="why-card">
+      <span>🤍</span>
+      <h3>Solo or With Friends</h3>
+      <p>Gaming is enjoyable whether I play alone or share fun moments with friends.</p>
+    </div>
+
+    <div class="why-card">
+      <span>🏆</span>
+      <h3>Sense of Achievement</h3>
+      <p>Completing challenges gives me motivation and a proud feeling.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GAME LIST -->
+<section>
+  <h2>Games I Enjoy Playing</h2>
+
+  <div class="game-cards">
+
+    <a href="https://www.roblox.com/" target="_blank" class="game-card">
+      <span>🎨</span>
+      <div>
+        <h3>ROBLOX</h3>
+        <p>Creative & Fun</p>
+      </div>
+    </a>
+
+    <a href="https://playvalorant.com/" target="_blank" class="game-card">
+      <span>🎯</span>
+      <div>
+        <h3>Valorant</h3>
+        <p>Tactical FPS</p>
+      </div>
+    </a>
+
+    <a href="https://www.epicgames.com/fortnite/" target="_blank" class="game-card">
+      <span>🌈</span>
+      <div>
+        <h3>Fortnite</h3>
+        <p>Colorful Action</p>
+      </div>
+    </a>
+
+    <a href="https://genshin.hoyoverse.com/" target="_blank" class="game-card">
+      <span>🌸</span>
+      <div>
+        <h3>Genshin Impact</h3>
+        <p>Cozy Open-World RPG</p>
+      </div>
+    </a>
+
+    <a href="https://hsr.hoyoverse.com/" target="_blank" class="game-card">
+      <span>🚄</span>
+      <div>
+        <h3>Honkai Star Rail</h3>
+        <p>Story-Driven Adventure</p>
+      </div>
+    </a>
+
+    <a href="https://www.chess.com/" target="_blank" class="game-card">
+      <span>♟️</span>
+      <div>
+        <h3>Chess</h3>
+        <p>Calm Strategy</p>
+      </div>
+    </a>
+
+    <a href="https://starcraft.com/en-us/" target="_blank" class="game-card">
+      <span>🚀</span>
+      <div>
+        <h3>StarCraft</h3>
+        <p>Classic Strategy</p>
+      </div>
+    </a>
+
+    <a href="https://www.ea.com/games/fifa" target="_blank" class="game-card">
+      <span>⚽</span>
+      <div>
+        <h3>FIFA</h3>
+        <p>Casual Sports Fun</p>
+      </div>
+    </a>
+
+    <a href="https://nba.2k.com/" target="_blank" class="game-card">
+      <span>🏀</span>
+      <div>
+        <h3>NBA 2K</h3>
+        <p>Chill Competition</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+<!-- MINI GAME -->
+<section class="mini-game">
+  <h2>Mini Game — Catch The Star ✨</h2>
+  <p>Click the star as many times as you can in 15 seconds!</p>
+
+  <div class="game-box">
+    <div id="star">⭐</div>
+  </div>
+
+  <div class="game-info">
+    <span>Score: <strong id="score">0</strong></span>
+    <span>Time: <strong id="time">15</strong>s</span>
+  </div>
+
+  <button id="startBtn" class="start-btn">Start Game</button>
+</section>
+
+<footer>
+  © 2025 My Hobby — Cozy Gaming 🎮
+</footer>
+
+<!-- SCRIPT MUST BE HERE -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  let score = 0;
+  let timeLeft = 15;
+  let timer;
+  let gameActive = false;
+
+  const star = document.getElementById("star");
+  const scoreDisplay = document.getElementById("score");
+  const timeDisplay = document.getElementById("time");
+  const gameBox = document.querySelector(".game-box");
+  const startBtn = document.getElementById("startBtn");
+
+  function moveStar() {
+    const boxWidth = gameBox.clientWidth - 40;
+    const boxHeight = gameBox.clientHeight - 40;
+
+    const randomX = Math.random() * boxWidth;
+    const randomY = Math.random() * boxHeight;
+
+    star.style.left = randomX + "px";
+    star.style.top = randomY + "px";
+  }
+
+  star.addEventListener("click", function () {
+    if (!gameActive) return;
+    score++;
+    scoreDisplay.textContent = score;
+    moveStar();
+  });
+
+  startBtn.addEventListener("click", function () {
+    score = 0;
+    timeLeft = 15;
+    gameActive = true;
+
+    scoreDisplay.textContent = score;
+    timeDisplay.textContent = timeLeft;
+    star.style.display = "block";
+    moveStar();
+
+    clearInterval(timer);
+    timer = setInterval(function () {
+      timeLeft--;
+      timeDisplay.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        gameActive = false;
+        star.style.display = "none";
+        alert("Time's up! Your score: " + score);
+      }
+    }, 1000);
+  });
+
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
